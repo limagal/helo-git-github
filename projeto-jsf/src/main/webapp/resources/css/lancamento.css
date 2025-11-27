@@ -1,0 +1,143 @@
+/* lancamento.css - estilo profissional e centralizado (compatível com JSF) */
+
+
+body {
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f6fb;
+    color: #222;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* MENU TOPO - usa a classe .menu-top que definimos no <h:form> */
+.menu-top {
+    width: 100%;
+    background: linear-gradient(180deg,#013a66 0%, #003d73 100%);
+    padding: 12px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Os commandLink do JSF viram <a> no HTML; estilizamos os links dentro do form */
+.menu-top a,
+.menu-top .ui-commandlink { /* alguns componentes adicionam classes próprias */
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 0 16px;
+    font-size: 15px;
+    display: inline-block;
+    padding: 6px 8px;
+    transition: all 150ms ease-in-out;
+}
+
+.menu-top a:hover,
+.menu-top .ui-commandlink:hover {
+    color: #d9ecff;
+    text-decoration: underline;
+}
+
+/* CONTAINER CENTRAL - usa .container-center no <h:form> */
+.container-center {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+/* Caixa do formulário (centra e aplica estilo card) */
+/* Observação: JSF gera <form> com class="container-center", então usamos um seletor que atinge o primeiro filho .tabelaCadastro */
+.container-center .tabelaCadastro {
+    width: 620px; /* largura fixa profissional */
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 22px 26px;
+    box-shadow: 0 8px 18px rgba(15,30,50,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+    box-sizing: border-box;
+}
+
+/* Cabeçalho do painelGrid (faceta header) */
+.container-center .tabelaCadastro .ui-panelgrid-header,
+.container-center .tabelaCadastro f\\:facet[name="header"], /* fallback para faceta */
+.container-center .tabelaCadastro > caption,
+.container-center .tabelaCadastro > .header {
+    background: #003a66;
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+/* células e labels */
+.container-center .tabelaCadastro td {
+    padding: 8px 6px;
+    vertical-align: middle;
+}
+
+.container-center .tabelaCadastro label,
+.container-center .tabelaCadastro .ui-outputlabel,
+.container-center .tabelaCadastro .ui-panelgrid-label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* inputs text gerados pelo <h:inputText> (várias impls colocam input[type="text"]) */
+.container-center .tabelaCadastro input[type="text"],
+.container-center .tabelaCadastro input[type="password"],
+.container-center .tabelaCadastro .ui-inputfield {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #cfcfcf;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.container-center .tabelaCadastro input[type="text"]:focus,
+.container-center .tabelaCadastro .ui-inputfield:focus {
+    outline: none;
+    border-color: #0060a0;
+    box-shadow: 0 0 8px rgba(0,96,160,0.12);
+}
+
+/* painel de botões */
+.container-center .tabelaCadastro h\\:panelGroup,
+.container-center .tabelaCadastro .ui-panelgroup {
+    margin-top: 8px;
+}
+
+/* estilo simples para botões; o PrimeFaces/JSF pode gerar button ou input */
+.container-center .tabelaCadastro input[type="submit"],
+.container-center .tabelaCadastro input[type="button"],
+.container-center .tabelaCadastro button,
+.container-center .tabelaCadastro .ui-button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* quando os botões usam imagem (h:commandButton image="..."), o componente pode renderizar <button><img> ou input[type=image] */
+/* deixamos imagens alinhadas e com espaço */
+.container-center .tabelaCadastro img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* responsividade simples: em telas pequenas, reduzir largura */
+@media (max-width: 700px) {
+    .container-center .tabelaCadastro {
+        width: calc(100% - 32px);
+        padding: 16px;
+    }
+
+    .menu-top a { margin: 0 10px; font-size: 14px; }
+}
