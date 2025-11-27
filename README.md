@@ -1,3 +1,4 @@
+Merge para teste de conflitos
 # Teste de repositório 
 **Teste de negrito**
 _teste de itálico_
